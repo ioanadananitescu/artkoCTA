@@ -83,7 +83,7 @@
 }
 
 .outline_btn {
-  @apply  bg-transparent py-1.5 px-5 text-marron-unpococlaro transition-all hover:bg-primary-orange hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  @apply  bg-transparent rounded-full border py-1.5 px-5 text-marron-unpococlaro transition-all hover:bg-primary-orange hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 .amber_btn {
     @apply rounded-full border bg-primary-orange/80 py-3.5 px-11 text-black transition-all hover:bg-amber-700/75 hover:text-white text-center text-lg font-inter flex items-center justify-center;

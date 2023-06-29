@@ -2,6 +2,7 @@ import '@styles/globals.css';
 import Nav from'@components/Nav';
 import Provider from '@components/Provider';
 import Navbar from '@components/NavBar';
+import  Footer  from '@components/Footer';
 
 export const metadata={
     title:"Artko",
@@ -21,7 +22,10 @@ const RootLayout = ({children}) => {
             <Nav />
            
             {children}
+            <Footer/>
           </main>
+         
+
           </Provider>
     </body>
   </html>
