@@ -93,7 +93,7 @@ const CreateBlog = () => {
           )}
         </section>
    
-        <Form
+        <BlogForm
           session={session}
           type='Add New'
           post={post}
