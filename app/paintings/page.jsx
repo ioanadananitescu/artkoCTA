@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import { commerce } from '@lib/commerce';
 import Navbar from '@components/NavBar';
-import PaintingsSkeletonCard from '@components/PaintingsSkeletonCard';
+import Footer from '@components/Footer';
 import Skeleton from '@components/Skeleton';
 import NavBarSecondary from '@components/NavBarSecondary';
 
