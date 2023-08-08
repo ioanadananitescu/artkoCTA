@@ -23,35 +23,14 @@ const ArtistWork = () => {
     if (session?.user.id) fetchPosts();
   }, [session?.user.id]);
 
-  const handleEdit = (post) => {
-    router.push(`/update-prompt?id=${post._id}`);
-  };
-
-  const handleDelete = async (post) => {
-    const hasConfirmed = confirm(
-      "Are you sure you want to delete this prompt?"
-    );
-
-    if (hasConfirmed) {
-      try {
-        await fetch(`/api/prompt/${post._id.toString()}`, {
-          method: "DELETE",
-        });
-
-        const filteredPosts = myPosts.filter((item) => item._id !== post._id);
-
-        setMyPosts(filteredPosts);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
+ 
 
   return (
     <ArtistCard
       name='My'
-      desc='You can discover more works from artist'
+      desc='Pick one of these works'
       data={myPosts}
+     
     
     />
   );

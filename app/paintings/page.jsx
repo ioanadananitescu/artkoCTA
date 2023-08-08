@@ -5,6 +5,7 @@ import { commerce } from '@lib/commerce';
 import Navbar from '@components/NavBar';
 import PaintingsSkeletonCard from '@components/PaintingsSkeletonCard';
 import Skeleton from '@components/Skeleton';
+import NavBarSecondary from '@components/NavBarSecondary';
 
 
 
@@ -91,14 +92,9 @@ useEffect(()=>{
     return (
         <>
             <Navbar/>
-            <div class="flex items-center justify-center py-4 md:py-8 flex-wrap space-x-2">
-
-            <button type="button" className="outline_btn">All categories</button>
-    <button type="button" class="outline_btn">Shoes</button>
-    <button type="button" class="outline_btn">Bags</button>
-    <button type="button" class="outline_btn">Electronics</button>
-    <button type="button" class="outline_btn">Gaming</button>
-            </div>
+            <NavBarSecondary/>
+            
+      
 
 
 {loading ? 

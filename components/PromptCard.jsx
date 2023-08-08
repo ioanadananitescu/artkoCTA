@@ -17,7 +17,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
 
     if (post.creator._id === session?.user.id) return router.push("/dashboard");
 
-    router.push(`/dashboard/${post.creator._id}?name=${post.creator.username}`);
+    router.push(`/artist-work/${post.creator._id}?name=${post.creator.username}`);
   };
 
   const handleCopy = () => {
@@ -29,9 +29,9 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   return (
 
     <div className="flex flex-col ">
-    <div className="bg-white shadow-md  rounded-3xl p-4">
+    <div className="bg-luxury shadow-md  rounded-xl p-4">
         <div className="flex-none lg:flex">
-          <img className="w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl" src={post.imageUrl} alt='uploaded art image' />
+          <img className="w-full  object-scale-down lg:object-cover  lg:h-48 rounded-xl" src={post.imageUrl} alt='uploaded art image' />
         </div>
         <div className="flex-auto ml-3 justify-evenly py-2">
                         <div className="flex flex-wrap ">
@@ -46,8 +46,8 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
             onClick={handleProfileClick}
           >
 
-           {/* //cretor post profile image, if he does one
-            <Image
+           {/*creator post profile image, if he does one*/}
+       {/*      <Image
               src={post.creator.image}
               alt='user_image'
               width={40}

@@ -4,6 +4,7 @@ import Navbar from '@components/NavBar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
+import FirstPageFeed from '@components/FirstPageFeed';
 
 const Home = () => {
   
@@ -32,22 +33,22 @@ const Home = () => {
           alt="Every week our curators find art to feature." />
         <Link href="https://shop.artko.ro/featured"
           class="absolute tracking-wide text-4xl md:text-6xl text-black font-bold
-         text-center top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2">Featured this week
+         text-center top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2">Uncovering art at your fingertips.
                  <br className="max-md:hidden" /> </Link>
  
     <button type="button" className=" absolute top-1/8 left-1/2 -translate-x-1/2 -translate-y-1/2 amber_btn">
-            Get started
+            Explore the gallery
             </button>
    
     </div>
     <div className='w-full flex-center flex-col'>
-<p className="desc text-center tracking-wide text-slate-500">Artko is an artist run platform that highlights other artists works.
+<p className="desc text-center tracking-wide text-slate-500">
 </p>
 </div>
 <div className='w-full'>
         
         </div>
-        <FeedFirstPage/>
+        <FirstPageFeed/>
       </section>
       <Analytics/>
       </>

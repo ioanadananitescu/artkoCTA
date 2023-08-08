@@ -21,12 +21,14 @@ const MoreWorks = ({ params }) => {
 
     if (params?.id) fetchPosts();
   }, [params.id]);
-
+console.log(userPosts);
   return (
     <ArtistCard
       name={userName}
-      desc={`${userName}'s work.`}
+      desc={`A curated selection of ${userName}'s work.`}
       data={userPosts}
+      
+    
     />
   );
 };

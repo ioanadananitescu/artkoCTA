@@ -1,3 +1,29 @@
+export const category=[
+    {
+        id:1, 
+        name:"selling"
+    },
+    {
+        id:2, 
+        name:"collecting"
+    },
+    {
+        id:3, 
+        name:"artist practice"
+    },
+    {
+        id:4, 
+        name:"first page"
+    },
+    {
+        id:5, 
+        name:"trends"
+    },
+];
+
+
+
+
 export const medium= [
     {
         id: 1,

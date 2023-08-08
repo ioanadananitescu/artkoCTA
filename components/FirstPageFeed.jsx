@@ -3,24 +3,33 @@
 import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
+import Skeleton from "./Skeleton";
 
 
 const PromptCardList = ({ data, handleTagClick }) => {
+    
   return (
-    <div className='gap-2 flex sm:flex-col flex-wrap md:flex-row justify-center items-center md:w-screen'>
-      {data.map((post) => (
+    <>
+   
+        <div className="gap-8 xs:columns-1 md:columns-3 sm:columns-2 "  > 
+    {data.map((post) => (
+ <div className="py-3">
         <PromptCard
           key={post._id}
           post={post}
           handleTagClick={handleTagClick}
-        />
+        /></div>
       ))}
     </div>
-  );
-};
+  
 
-const FeedFirstPage = () => {
+</>
+  )
+}
+
+const FirstPageFeed = () => {
   const [allPosts, setAllPosts] = useState([]);
+  const [loading, setLoading]=useState(true);
 
   // Search states - the search bar that will not be present in the first page
   const [searchText, setSearchText] = useState(""); 
@@ -31,6 +40,7 @@ const FeedFirstPage = () => {
     const data = await response.json();
 
     setAllPosts(data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -58,8 +68,10 @@ const filterPrompts = (searchtext) => {
    
   };
 
+
   return (
-    <section className='mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2'>
+    <>
+     {/*<section className='mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2'>
       <form className='relative w-full gap-3 flex-center'>
         <input
           type='text'
@@ -72,15 +84,17 @@ const filterPrompts = (searchtext) => {
       </form>
 
       {/* All Prompts */}
-      {searchText ? (
+      {/* {searchText ? (
         <PromptCardList
          
-        />
-      ) : (
-        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+        />):(<div></div>) */}
+      {loading? 
+      (<Skeleton/>)
+      :
+        (<PromptCardList data={allPosts} handleTagClick={handleTagClick} />
       )}
-    </section>
+    </>
   );
 };
 
-export default FeedFirstPage;
+export default FirstPageFeed;

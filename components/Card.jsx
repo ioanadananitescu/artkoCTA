@@ -35,15 +35,15 @@ return(
             className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
             onClick={handleProfileClick}
           >
-            <Image
+           {/*  <Image
               src={post.creator.image}
               alt='user_image'
               width={40}
               height={40}
               className='rounded-full object-contain'
-            />
+            /> */}
 
-            <div className='flex flex-col'>
+            <div className='flex flex-col p-4'>
               <h3 className='font-satoshi font-semibold text-gray-900'>
                 {post.creator.username}
               </h3>
@@ -75,7 +75,7 @@ return(
                onClick={() => handleTagClick && handleTagClick(post.tag)}>Tags: #{post.tag}</p>
                 <p class="">Medium: {post.medium}</p>
         <div class="flex items-center justify-between">
-            <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+            <span class="text-3xl font-bold text-gray-900 dark:text-white">Make an offer</span>
             <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
         </div>
     </div>

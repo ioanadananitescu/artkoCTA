@@ -1,10 +1,20 @@
-import Card from "./Card";
+'use client'
 
-const ArtistCard = ({ name, desc, data}) => {
+import Card from "./Card";
+import Image from "next/image";
+
+const ArtistCard = ({ name, desc, data, userImage}) => {
   return (
     <section className='w-full'>
       <h1 className='head_text text-left'>
-        <span className='blue_gradient'>Artist {name} work </span>
+      <Image
+              src={userImage}
+              alt='user_image'
+              width={40}
+              height={40}
+              className='rounded-full object-contain'
+            /> 
+        <span className='blue_gradient'>{name}</span>
       </h1>
       <p className='desc text-left'>{desc}</p>
 

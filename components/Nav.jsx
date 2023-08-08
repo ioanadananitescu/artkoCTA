@@ -45,9 +45,13 @@ const Nav = () => {
 <div className="hidden sm:flex ">
     {session?.user ? (
         <div className="flex gap-1 md:gap-1">
+               <Link href="/create-blog" 
+            className=" outline_btn z-50">
+                Add New Blog
+            </Link>
             <Link href="/create-prompt" 
             className=" outline_btn z-50">
-                Create Post
+                Add New Artwork
             </Link>
                       <button type="button" onClick={() => {
                           handleSignOut();
@@ -106,6 +110,13 @@ const Nav = () => {
            className="tracking-wide text-md text-primary-orange hover:text-amber-400 font-semibold">
        My Profile
        </Link>
+       <Link href="/create-blog" 
+            className="rounded-full"
+            onClick={()=>setToggleDropDown(false)}>
+      Create Blog
+      
+                              </Link>
+       
        <Link href="/create-prompt" 
             className="rounded-full"
             onClick={()=>setToggleDropDown(false)}>
