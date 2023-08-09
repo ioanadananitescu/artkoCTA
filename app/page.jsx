@@ -3,7 +3,7 @@ import FeedFirstPage from '@components/FeedFirstPage';
 import Navbar from '@components/NavBar';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Analytics } from '@vercel/analytics/react';
+
 import FirstPageFeed from '@components/FirstPageFeed';
 
 const Home = () => {
@@ -48,9 +48,9 @@ const Home = () => {
 <div className='w-full'>
         
         </div>
-        <FirstPageFeed/>
+    
       </section>
-      <Analytics/>
+    
       </>
 
 
