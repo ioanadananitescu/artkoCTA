@@ -13,7 +13,7 @@ const ImageFrontPage = () => {
           cloudName: "dlel1msov"
         }
       });
-const file="v1680605235/frontpage/HavanaPhotoSetup.webp";
+const file="v1687430481/frontpage/bioartexpo.jpg";
     const myImage=cld.image(file);
 
 
