@@ -2,7 +2,7 @@
   
   "name": "artkoes",
   
-  "version": "0.0.1",
+  "version": "0.1.0",
   
   "private": true,
   
@@ -26,6 +26,12 @@
   
     
   "@chec/commerce.js": "^2.8.0",
+  
+    
+  "@cloudinary/react": "^1.11.2",
+  
+    
+  "@cloudinary/url-gen": "^1.11.1",
   
     
   "@vercel/analytics": "^1.0.1",
