@@ -13,15 +13,24 @@ const ImageFrontPage = () => {
           cloudName: "dlel1msov"
         }
       });
-const file="v1687430481/frontpage/bioartexpo.jpg";
+const file="v1687341642/frontpage/Skinsetup.jpg";
     const myImage=cld.image(file);
+    myImage
+   
+    .format('auto')
+    .quality('auto');
+
+
+    const myUrl=myImage.toURL();
+    console.log(myUrl);
 
 
   return (
     <div >
           <AdvancedImage
+          
             cldImg={myImage}
-            plugins={[lazyload ('0', 1),responsive(200),placeholder ({mode: 'predominant-color'})]}
+            plugins={[responsive(),placeholder ({mode: 'predominant-color'})]}
             
           />
         </div>
