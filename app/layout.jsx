@@ -4,17 +4,26 @@ import Provider from '@components/Provider';
 import Navbar from '@components/NavBar';
 import  Footer  from '@components/Footer';
 
+
+
 export const metadata={
     title:"Artko",
     description:'an online platform showcasing artists work'
 }
 
 const RootLayout = ({children}) => {
+
+  
   return (
+    
   <html>
+   
+ 
       <body>
+				
+      
         <Provider>
-        <div className="main bg-primary-orange">
+        <div className="main ">
             {/* <div className="gradient"/> */}
 
         </div>
@@ -27,6 +36,7 @@ const RootLayout = ({children}) => {
          
 
           </Provider>
+       
     </body>
   </html>
   )

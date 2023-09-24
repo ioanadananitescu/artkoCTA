@@ -3,6 +3,8 @@
 import React from 'react';
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage, lazyload, responsive, placeholder } from "@cloudinary/react";
+import { thumbnail } from '@cloudinary/url-gen/actions/resize';
+import { focusOn } from '@cloudinary/url-gen/qualifiers/gravity';
 
 
 
@@ -16,6 +18,10 @@ const ImageFrontPage = () => {
 const file="v1687341642/frontpage/Skinsetup.jpg";
     const myImage=cld.image(file);
     myImage
+    .resize(thumbnail()
+    .width(300)
+    .height(300)
+    )
    
     .format('auto')
     .quality('auto');
@@ -30,7 +36,7 @@ const file="v1687341642/frontpage/Skinsetup.jpg";
           <AdvancedImage
           
             cldImg={myImage}
-            plugins={[lazyload({rootMargin: '10px 20px 10px 30px', threshold: 0.25}),responsive({steps:[800, 1000, 1400]}),placeholder ({mode: 'predominant-color'})]}
+            plugins={[responsive({steps:[800, 1000, 1400]}),placeholder ({mode: 'predominant-color'})]}
             
           />
         </div>

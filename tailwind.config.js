@@ -5,11 +5,13 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: ["class"],
   theme: {
     extend: {
       fontFamily: {
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        
       },
       screens: {
               '3xl': '1700px',
@@ -17,10 +19,13 @@ module.exports = {
           
       
       colors: {
-        'primary-orange': '#BAAD8A',
-        'luxury': '#b7ad8d',
+        'primary-orange': '#2F5061',
+       'misty-blue':'#2F5061',
+       'ivory':'#F4EAE6',
+       'coral':'#E57F84',
+        'mypink': '#D19385',
         'luxury-gray': 'b6b3aa',
-        'marron-oscuro': '#504c49',
+        'marron-oscuro': '#F4EAE6',
         'marron-unpococlaro': '#67625e',
         'marron-masclaro': '#7b7670',
         'marron-muyclaro': '#938a83',

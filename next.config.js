@@ -4,9 +4,9 @@ const nextConfig = {
       appDir: true,
       serverComponentsExternalPackages: ["mongoose"],
     },
- /*    images: {
-      domains: ['lh3.googleusercontent.com'],
-    }, */
+  images: {
+      domains: ['res.cloudinary.com'],
+    }, 
   
     images: {
       remotePatterns: [
@@ -24,11 +24,18 @@ const nextConfig = {
         },
       ],
     },
-    webpack(config) {
+    webpack:(config, {isServer}) => {
       config.experiments = {
         ...config.experiments,
         topLevelAwait: true,
       }
+      if (!isServer) {
+        // set 'fs' to an empty module on the client to prevent this error on build --> Error: Can't resolve 'fs'
+        config.resolve.fallback = {
+            fs: false
+        }
+    }
+      
       return config
     }
   }

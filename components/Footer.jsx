@@ -7,8 +7,8 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer class="relatve w-screen dark:bg-gray-900">
-    <div class="mx-auto w-full max-w-screen-xl">
+    <footer class="relative w-screen dark:bg-gray-900">
+    <div class="mx-auto w-full max-w-screen-xl md:flex md:items-center md:justify-between">
       <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
         <div>
             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
