@@ -11,7 +11,7 @@ cloudinary.config({
 
 export default async function MasonryGallery(){
   const {resources} = await cloudinary.api.resources_by_tag("painting")
-console.log(resources)
+
 
   return(
 <>
