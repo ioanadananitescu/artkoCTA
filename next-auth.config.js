@@ -1,5 +1,5 @@
 
-import { MongoClient } from 'mongodb';
+/* import { MongoClient } from 'mongodb';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
@@ -39,4 +39,4 @@ export default NextAuth({
       // You can perform actions when a new user is created
     },
   },
-});
+}); */
