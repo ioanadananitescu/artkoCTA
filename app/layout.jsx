@@ -30,6 +30,7 @@ const RootLayout = ({children}) => {
         </div>
         <main className="app">
             <Nav />
+         
            
             {children}
             <Footer/>

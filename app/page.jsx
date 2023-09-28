@@ -15,7 +15,8 @@ import AuthForm from './auth-form';
   return (
     <>   
       <Navbar />  
-      <AuthForm/>
+       <AuthForm/>
+    
       <Header />
       
   <MasonryGallery/>
