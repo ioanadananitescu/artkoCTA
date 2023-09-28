@@ -1,4 +1,5 @@
 import '@styles/globals.css';
+import '@styles/auth-form.css';
 import Nav from'@components/Nav';
 import Provider from '@components/Provider';
 import Navbar from '@components/NavBar';

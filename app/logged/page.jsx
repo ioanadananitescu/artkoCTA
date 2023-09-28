@@ -10,7 +10,7 @@ export default async function Login() {
 
   const { data: { session } } = await supabase.auth.getSession()
   
-  const { data } = await supabase.from("users").select();
+  const { data } = await supabase.from("blogs").select();
   
 
   if (!session) {

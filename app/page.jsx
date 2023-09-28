@@ -4,6 +4,7 @@ import Navbar from '@components/NavBar';
 import Header from '@components/Header';
 import '@styles/globals.css';
 import MasonryGallery from '@components/MasonryGallery';
+import AuthForm from './auth-form';
 
 
  const Home=()=>{
@@ -13,8 +14,10 @@ import MasonryGallery from '@components/MasonryGallery';
 
   return (
     <>   
-<Navbar/>  
-  <Header />
+      <Navbar />  
+      <AuthForm/>
+      <Header />
+      
   <MasonryGallery/>
 
   </>
