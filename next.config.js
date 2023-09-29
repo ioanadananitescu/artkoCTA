@@ -2,7 +2,8 @@
 const nextConfig = {
     experimental: {
       appDir: true,
-      serverComponentsExternalPackages: ["mongoose"],
+    serverComponentsExternalPackages: ["mongoose"],
+      serverActions:true
     },
   images: {
       domains: ['res.cloudinary.com'],
