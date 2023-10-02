@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import Avatar from './avatar'
 
+
 export default function AccountForm({ session }) {
   const supabase = createClientComponentClient()
   const [loading, setLoading] = useState(true)
@@ -116,7 +117,7 @@ export default function AccountForm({ session }) {
           {loading ? 'Loading ...' : 'Update'}
         </button>
       </div>
-
+    
       <div>
         <form action="/auth/signout" method="post">
           <button className="button block" type="submit">
