@@ -3,13 +3,20 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import { useRouter } from "next/navigation"
 
-export default function Likes({ post }) {
+export default function Likes({ post, addOptimisticPost }) {
     const router=useRouter()
     const handleLikes = async () => {
         const supabase = createClientComponentClient()
         const {data:{user}}= await supabase.auth.getUser()
         if (user) {
             if (post.user_has_liked_post) {
+                //dislike with the use of optimistic from react
+                addOptimisticPost({
+                    ...post,
+                    likes: post.likes - 1,
+                    user_has_liked_post: !post.user_has_liked_post
+                }
+                )
                 //dislike
                 await supabase
                     .from('likes')
@@ -17,7 +24,13 @@ export default function Likes({ post }) {
                     .match({user_id:user.id, post_id:post.id})
             }
             else {
-                 
+                //like with use of useOptimistic from react implemented 
+                addOptimisticPost({
+                    ...post,
+                    likes: post.likes + 1,
+                    user_has_liked_post: !post.user_has_liked_post
+                }
+                )
             await supabase
             .from('likes')
             .insert({ user_id: user.id, post_id: post.id })
