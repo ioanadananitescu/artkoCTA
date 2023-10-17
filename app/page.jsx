@@ -1,27 +1,21 @@
 
-
-import Navbar from '@components/NavBar';
 import Header from '@components/Header';
+
 import '@styles/globals.css';
 import MasonryGallery from '@components/MasonryGallery';
-import AuthForm from './auth-form';
+import Navedit from '@components/NavEdit';
 
 
- const Home=()=>{
-   
-  
+
+ export default async function Home(){
 
 
   return (
     <>   
-      <Navbar />  
-       <AuthForm/>
-    
+   
       <Header />
-      
-  <MasonryGallery/>
+   <MasonryGallery/>
 
   </>
   )
  }
- export default Home

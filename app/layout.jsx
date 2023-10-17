@@ -1,16 +1,17 @@
 import '@styles/globals.css';
 import '@styles/auth-form.css';
-import Nav from'@components/Nav';
 import Provider from '@components/Provider';
 import Navbar from '@components/NavBar';
 import  Footer  from '@components/Footer';
+import Navedit from '@components/NavEdit';
+
 
 
 
 export const metadata={
     title:"Artko",
-    description:'an online platform showcasing artists work'
-}
+    description:'online art platform showcasing art'
+  }
 
 const RootLayout = ({children}) => {
 
@@ -22,21 +23,16 @@ const RootLayout = ({children}) => {
  
       <body>
 				
-      <Provider>
-    
-        <div className="main ">
-            {/* <div className="gradient"/> */}
-        </div>
+  
         <main className="app">
-            <Nav />
-         
-           
-            <Nav />           
+          <Navedit/>
+            <Navbar />
+       
             {children}
-            <Footer/>
-          </main>
          
-          </Provider>
+          </main>
+          <Footer/>
+    
        
     </body>
   </html>

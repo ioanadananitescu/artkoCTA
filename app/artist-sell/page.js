@@ -1,6 +1,7 @@
 
 
 import Navbar from '@components/NavBar';
+import Navedit from '@components/NavEdit';
 import '@styles/globals.css';
 
 import {v2 as cloudinary} from 'cloudinary';
@@ -18,7 +19,7 @@ export default async function ArtistSell(){
 
   return (
     <>   
-<Navbar/>  
+
    <section className="text-gray body-font">
 
     

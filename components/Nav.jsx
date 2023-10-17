@@ -6,6 +6,7 @@ import Image from 'next/image';
 import {useState, useEffect} from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 import ThemeSwitcher from './ThemeSwitcher';
+import AuthForm from '@app/auth-form';
 
 
 
@@ -47,6 +48,7 @@ const Nav = () => {
 
 
 <div className="hidden sm:flex ">
+
 <div className="mr-10 flex flex-center z-50"><ThemeSwitcher/></div>
 
   
@@ -101,8 +103,7 @@ const Nav = () => {
           {/*Mobile Navigation*/}
           <div className="flex relative sm:hidden">
           <div className="z-50  mr-10 flex flex-center"><ThemeSwitcher/></div>
-        
-
+      
               {session?.user ? (
                   <div className='relative flex'>
     <Image          

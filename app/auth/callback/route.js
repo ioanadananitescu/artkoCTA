@@ -19,5 +19,5 @@ export async function GET(request) {
   }
 
   // 3.Finally, we redirect the user to the account page.URL to redirect to after sign in process completes
-  return NextResponse.redirect(new URL('/account',request.url))
+  return NextResponse.redirect(new URL('/authHome',request.url))
 }

@@ -1,93 +1,102 @@
-'use client'
-import Link from 'next/link';
-import { useState } from 'react';
+"use client";
 
-const Navedit = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+import Link from 'next/link';
+import Image from 'next/image';
+import {useState, useEffect} from 'react';
+import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
+import ThemeSwitcher from './ThemeSwitcher';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+
+
+
+
+export default function Navedit(){
+
+    const [toggleDropDown, setToggleDropDown]=useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const supabase=createClientComponentClient();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  return (
-    <nav className="absolute   w-screen z-40">
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
-        
-                  <div className="hidden lg:block translate-y-16">
-            <div className="absolute w-full justify-center flex items-baseline space-x-4">
-              <Link href="/paintings"className="text-marron-oscuro border-2 border-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Paintings
-              </Link>
-              <Link href="/drawings"className="text-marron-oscuro border-2 border-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Drawings
-              </Link>
-              <Link href="/sculpture"className="text-marron-oscuro border-2 border-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sculpture
-              </Link>
-              <Link href="/digital-art"className="text-marron-oscuro border-2 border-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Digital Art
-              </Link>
-              <Link href="/art-advisory"className="text-marron-oscuro border-2 border-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Art Advisory
-              </Link>
-            </div>
-          </div>
-          <div className="flex px-4 translate-y-2.5 lg:hidden">
-            <button
-              className=" inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-marron-clarisimo focus:outline-none  focus:ring-offset-gray-800 focus:ring-white"
-              onClick={toggleMenu}
-            >
-              <span className="sr-only">Open main menu</span>
-              {!isMenuOpen ? (
-                <svg
-                  className="block h-9 w-9"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
-      
-     
-      {isMenuOpen && (
-        <div className="lg:hidden bg-marron-clarisimo/70">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 z-50">
-            <Link href="/paintings"className="text-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Paintings
-            </Link>
-            <Link href="/drawings" className="text-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Drawings
-            </Link>
-            <Link href="/sculpture"className="text-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sculpture
-            </Link>
-            <Link href="/digital-art"className="text-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Digital Art
-            </Link>
-            <Link href="/art-advisory"className="text-marron-oscuro hover:bg-marron-muyclaro/60 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Art Advisory
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
-};
 
-export default Navbar;
+   
+ 
+
+
+
+  return (
+  
+ <nav className="flex  justify-end w-full mb-16 pt-3">
+        <div className="flex relative">
+
+        <div className="z-50  mr-10 flex flex-center"><ThemeSwitcher/></div>
+    
+        <div  class="flex gap-2 md:order-2 z-50">
+        <button
+        className=" inline-flex border-none items-center 
+        justify-center p-2 rounded-md text-gray-400 
+        hover:text-white hover:bg-marron-clarisimo 
+        focus:outline-none  focus:ring-offset-gray-800 
+        focus:ring-white">
+        <Link  href="/authHome">
+   <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="30 "
+  height="30"
+  viewBox="0 0 256 256"
+  fill="#fff"
+  stroke="0.5"
+>
+ 
+    <path
+      d="M86.114 90h-6.067c0-19.325-15.722-35.047-35.047-35.047C25.675 54.953 9.954 70.675 9.954 90H3.886C3.886 67.329 22.33 48.886 45 48.886c22.671 0 41.114 18.443 41.114 41.114zM45 46.488c-12.817 0-23.244-10.427-23.244-23.244S32.183 0 45 0c12.816 0 23.244 10.427 23.244 23.244S57.816 46.488 45 46.488zm0-40.421c-9.471 0-17.176 7.705-17.176 17.176 0 9.471 7.705 17.177 17.176 17.177 9.471 0 17.176-7.705 17.176-17.177 0-9.47-7.705-17.176-17.176-17.176z"
+      transform="matrix(2.81 0 0 2.81 1.407 1.407)"
+    ></path>
+  
+</svg>
+  
+
+</Link> 
+</button>
+        
+        <div> Sign Out</div>
+
+
+    
+        
+     {/* secure user sign in  */}
+     <button
+              className=" inline-flex items-center 
+              justify-center p-2 rounded-md text-gray-400 
+              hover:text-white hover:bg-marron-clarisimo 
+              focus:outline-none  focus:ring-offset-gray-800 
+              focus:ring-white border-none">
+<Link className="" href="/auth-form">
+<svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="30"
+      viewBox="0 0 256 256"
+    >
+      <g fill="#fff" strokeMiterlimit="10" strokeWidth="0.5">
+        <path
+          d="M45 34.78c-9.589 0-17.39-7.801-17.39-17.39S35.411 0 45 0s17.391 7.801 17.391 17.39S54.589 34.78 45 34.78zM45 7c-5.729 0-10.39 4.661-10.39 10.39S39.271 27.78 45 27.78c5.729 0 10.391-4.661 10.391-10.39S50.729 7 45 7zM69.417 90a3.5 3.5 0 01-3.5-3.5V61.756c0-7.28-5.923-13.203-13.203-13.203H37.287c-7.28 0-13.203 5.923-13.203 13.203V86.5a3.5 3.5 0 11-7 0V61.756c0-11.14 9.063-20.203 20.203-20.203h15.427c11.14 0 20.203 9.063 20.203 20.203V86.5a3.5 3.5 0 01-3.5 3.5z"
+          transform="matrix(2.81 0 0 2.81 1.407 1.407)"
+        ></path>
+        <path
+          d="M53.53 67.716H48.5v-5.03a3.5 3.5 0 10-7 0v5.03h-5.031a3.5 3.5 0 100 7H41.5v5.031a3.5 3.5 0 107 0v-5.031h5.03a3.5 3.5 0 100-7z"
+          transform="matrix(2.81 0 0 2.81 1.407 1.407)"
+        ></path>
+      </g>
+    </svg>
+</Link>
+</button>
+</div>
+</div>
+ </nav>
+  )
+}
+

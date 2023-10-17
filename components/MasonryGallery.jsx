@@ -17,7 +17,7 @@ export default async function MasonryGallery(){
 <>
 <div id="scroll" className="grr max-w-7xl pt-20 mx-auto text-center">
         <h1 className="mb-8 text-6xl font-sans font-bold text-gray-900 text-transparent bg-clip-text bg-gradient-to-r from-slate-600 dark:from-black-300 to-gray-800 dark:to-gray-200">
-       Our latest inspiration
+     Featured art
         </h1>
       
             </div>
