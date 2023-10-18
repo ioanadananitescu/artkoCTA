@@ -1,11 +1,12 @@
 import '@styles/globals.css';
 import '@styles/auth-form.css';
-import Provider from '@components/Provider';
+
 import Navbar from '@components/NavBar';
 import  Footer  from '@components/Footer';
 import Navedit from '@components/NavEdit';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 
-
+import { cookies } from 'next/headers';
 
 
 export const metadata={
@@ -13,8 +14,11 @@ export const metadata={
     description:'online art platform showcasing art'
   }
 
-const RootLayout = ({children}) => {
+export default async function RootLayout ({children}) {
 
+ const supabase=createServerComponentClient({cookies})
+  const {data:{session}}=await supabase.auth.getSession()
+  
   
   return (
     
@@ -25,7 +29,10 @@ const RootLayout = ({children}) => {
 				
   
         <main className="app">
-          <Navedit/>
+   
+         <Navedit session={session} />
+    
+    
             <Navbar />
        
             {children}
@@ -39,4 +46,3 @@ const RootLayout = ({children}) => {
   )
 }
 
-export default RootLayout
