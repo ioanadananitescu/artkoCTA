@@ -12,7 +12,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 
 
-export default async function Navedit({session}){
+export default async function Navedit({ session }){
 
     const [toggleDropDown, setToggleDropDown]=useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -5,8 +5,8 @@ import Navbar from '@components/NavBar';
 import  Footer  from '@components/Footer';
 import Navedit from '@components/NavEdit';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-
 import { cookies } from 'next/headers';
+import { cache } from 'react';
 
 
 export const metadata={
@@ -15,12 +15,16 @@ export const metadata={
 }
   
   
-export const dynamic = 'force-dynamic'
 
-export default async function RootLayout ({children}) {
+export default async function RootLayout({ children }) {
 
- const supabase=createServerComponentClient({cookies})
-  const { data: { session } } = await supabase.auth.getSession()
+  const createServerSupabaseClient = cache(() => {
+    const cookieStore = cookies()
+    return createServerComponentClient({ cookies: () => cookieStore })
+})
+
+ const supabase=createServerSupabaseClient()
+  const { data: { session } } = null ||  await supabase.auth.getSession() 
 
   
   
@@ -34,7 +38,7 @@ export default async function RootLayout ({children}) {
   
         <main className="app">
    
-         <Navedit session={session} />
+         <Navedit session={null||session} />
     
     
             <Navbar />

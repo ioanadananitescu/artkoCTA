@@ -2,6 +2,8 @@ import AuthProvider from "@components/Auth/AuthProvider";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
+
+
 export default async function AuthHomeLayout({children}){
     const supabase = createServerComponentClient({ cookies });
 
