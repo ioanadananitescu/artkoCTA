@@ -12,12 +12,16 @@ import { cookies } from 'next/headers';
 export const metadata={
     title:"Artko",
     description:'online art platform showcasing art'
-  }
+}
+  
+  
+export const dynamic = 'force-dynamic'
 
 export default async function RootLayout ({children}) {
 
  const supabase=createServerComponentClient({cookies})
-  const {data:{session}}=await supabase.auth.getSession()
+  const { data: { session } } = await supabase.auth.getSession()
+
   
   
   return (
