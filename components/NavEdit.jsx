@@ -2,23 +2,25 @@
 
 
 import Link from 'next/link';
-
 import {useState, useEffect} from 'react';
-
 import ThemeSwitcher from './ThemeSwitcher';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 
 
 
 
 export default  function Navedit(){
+  const router=useRouter();
 
 
   const supabase = createClientComponentClient();
 
   async function handleSignOut() {
     const { error } = await supabase.auth.signOut();
+   router.push('/authHome')
 
     if (error) {
       // eslint-disable-next-line no-console
