@@ -5,6 +5,8 @@ import { redirect } from 'next/navigation';
 
 import SignOut from '@components/Auth/SignOut';
 import { headers } from 'next/headers';
+import { cache } from 'react';
+
 
 
    
@@ -17,7 +19,13 @@ export default async function Profile() {
   const domain = headersList.get('host') || "";
   const fullUrl = headersList.get('referer') || "";
 
-  const supabase = createServerComponentClient({ cookies });
+  //code replacind const supabase=createServerComponentClient({cookies}) that causes production problems
+  const createServerSupabaseClient = cache(() => {
+    const cookieStore = cookies()
+    return createServerComponentClient({ cookies: () => cookieStore })
+})
+
+ const supabase=createServerSupabaseClient()
 
   const {
     data: { user },

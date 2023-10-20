@@ -2,12 +2,21 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { cache } from 'react';
+
 
 
 import SignOut from '@components/Auth/SignOut';
 
 export default async function Home() {
-  const supabase = createServerComponentClient({ cookies });
+
+ //code replacind const supabase=createServerComponentClient({cookies}) that causes production problems
+ const createServerSupabaseClient = cache(() => {
+  const cookieStore = cookies()
+  return createServerComponentClient({ cookies: () => cookieStore })
+})
+
+ const supabase=createServerSupabaseClient()
 
   const {
     data: { user },

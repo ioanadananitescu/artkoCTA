@@ -12,16 +12,11 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 
 
-export default async function Navedit({ session }){
-
-    const [toggleDropDown, setToggleDropDown]=useState(false)
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default async function Navedit(){
 
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-const supabase =createClientComponentClient()
+  const supabase = createClientComponentClient()
+  
   async function handleSignOut() {
     const { error } = await supabase.auth.signOut();
 
@@ -44,7 +39,7 @@ const supabase =createClientComponentClient()
     
         <div  class="flex gap-2 md:order-2 z-50">
 
-          {session?(
+          {/* log out button */}
           <button
           className=" inline-flex border-none items-center 
           justify-center p-2 rounded-md text-gray-400 
@@ -80,8 +75,8 @@ const supabase =createClientComponentClient()
   
 
   </button>
-          ):(
-
+        
+{/* log in sign in button */}
          
 
             <button
@@ -110,8 +105,8 @@ const supabase =createClientComponentClient()
     
     </Link> 
     </button>
-          )
-}
+          
+
          
     
        

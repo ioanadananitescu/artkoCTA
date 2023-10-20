@@ -4,9 +4,7 @@ import '@styles/auth-form.css';
 import Navbar from '@components/NavBar';
 import  Footer  from '@components/Footer';
 import Navedit from '@components/NavEdit';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
-import { cache } from 'react';
+
 
 
 export const metadata={
@@ -18,15 +16,7 @@ export const metadata={
 
 export default async function RootLayout({ children }) {
 
-  const createServerSupabaseClient = cache(() => {
-    const cookieStore = cookies()
-    return createServerComponentClient({ cookies: () => cookieStore })
-})
 
- const supabase=createServerSupabaseClient()
-  const { data: { session } } = null ||  await supabase.auth.getSession() 
-
-  
   
   return (
     
@@ -38,7 +28,7 @@ export default async function RootLayout({ children }) {
   
         <main className="app">
    
-         <Navedit session={null||session} />
+         <Navedit  />
     
     
             <Navbar />
