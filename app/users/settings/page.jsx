@@ -18,7 +18,7 @@ export default async function Settings(){
    
     return (
         <>
-        <Navedit session={session}/>
+    
       <AccountForm session={session} />
  
    

@@ -33,7 +33,7 @@ export default async function Home() {
     <div className="card">
       <h2>Welcome!</h2>
       <code className="highlight">{user.role}</code>
-      <Link className="button" href="/authHome/profile">
+      <Link className="button" href="/users/settings">
         Go to Profile
       </Link>
       <SignOut />

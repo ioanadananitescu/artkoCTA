@@ -17,7 +17,14 @@ export default  function Navedit(){
 
   const supabase = createClientComponentClient();
 
- 
+  async function handleSignOut() {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      // eslint-disable-next-line no-console
+      console.error('ERROR:', error);
+    }
+  }
     const [session, setSession] = useState(null)
 
     useEffect(() => {
@@ -56,6 +63,7 @@ export default  function Navedit(){
           hover:text-white hover:bg-marron-clarisimo 
           focus:outline-none  focus:ring-offset-gray-800 
           focus:ring-white"
+          onClick={handleSignOut}
           >
        
             <svg
