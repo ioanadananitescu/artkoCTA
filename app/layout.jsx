@@ -1,5 +1,5 @@
 import '@styles/globals.css';
-import '@styles/auth-form.css';
+
 
 import Navbar from '@components/NavBar';
 import  Footer  from '@components/Footer';

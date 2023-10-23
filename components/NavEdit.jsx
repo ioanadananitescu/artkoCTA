@@ -5,7 +5,6 @@ import Link from 'next/link';
 import {useState, useEffect} from 'react';
 import ThemeSwitcher from './ThemeSwitcher';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { redirect } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 

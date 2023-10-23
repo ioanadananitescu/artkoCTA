@@ -66,7 +66,7 @@ export default function AccountForm({ session}) {
   }
 
   return (
-    <div className="grid grid-cols-1 px-4 pt-6 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
+    <div className="grid grid-cols-1 px-4 pt-6 lg:grid-cols-3 lg:gap-4 dark:bg-gray-900">
     <div className="mb-4 col-span-full xl:mb-2">
         <nav className="flex mb-5" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
@@ -256,6 +256,14 @@ onChange={(e) => setFullname(e.target.value)}
                                 <svg className="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <div className="flex-1 min-w-0">
+                            <p className="text-base font-semibold text-gray-900 truncate dark:text-white">
+                           Last Signed In:</p>
+                           <p className="text-sm font-normal text-gray-500 truncate dark:text-gray-400">
+                           <code className="highlight">{new Date(user.last_sign_in_at).toUTCString()}</code>
+                                </p>    
+     
+    
+                                
                                 <p className="text-base font-semibold text-gray-900 truncate dark:text-white">
                                     California 123.123.123.123
                                 </p>

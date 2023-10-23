@@ -1,10 +1,10 @@
 
-import Likes from '@app/likes';
+import Likes from '@app/authHome/likes';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { experimental_useOptimistic as useOptimistic } from "react";
-import OptimPost from '../../../app/OptimPost';
+import OptimPost from './OptimPost';
 
 
 export default async function PostForm() {
@@ -30,7 +30,7 @@ export default async function PostForm() {
     }))??[]
 
   if (!session) {
-    redirect('/account')
+    redirect('/authHome')
   }
 
 
