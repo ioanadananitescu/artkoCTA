@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation';
 import { experimental_useOptimistic as useOptimistic } from "react";
 import OptimPost from '../OptimPost';
 import PostForm from '../posts-form';
-import NewPost from '../newPost';
+import NewPost from './newPost';
 
 
 export default async function Posts() {
@@ -41,8 +41,8 @@ export default async function Posts() {
     <>
       <div className='gap-2 flex sm:flex-col flex-wrap md:flex-row justify-center items-center md:w-screen'>
         <NewPost/>
-              <OptimPost posts={posts} />
-    </div>
+        </div>
+              
       
       </>
   )

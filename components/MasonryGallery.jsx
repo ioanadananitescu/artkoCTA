@@ -21,7 +21,7 @@ export default async function MasonryGallery(){
         </h1>
       
             </div>
-    <div class="sm:columns-2 md:columns-3 gap-8">
+    <div class="sm:columns-2 md:columns-3 gap-2">
         
 
     {resources.map((resource)=>{

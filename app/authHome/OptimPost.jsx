@@ -40,13 +40,13 @@ const router=useRouter()
     return optimisticPost.map((post) => (
             <div className= "border border-gray-800 border-t-0 px-4 py-8 flex" key = { post.id } >
                     <div className="h-12 w-12">
-      {/*   <Image
+         <Image
           className="rounded-full"
-          src={}
-          alt="tweet user avatar"
+          src={post.princ_image_url}
+          alt="work image"
           width={48}
           height={48}
-        /> */}
+        /> 
         </div>
         <div className="ml-4">
         <p>
@@ -56,6 +56,8 @@ const router=useRouter()
           </span>
         </p>
         <p>{post.title}</p>
+        <span className="text-sm ml-2 text-gray-400">{post.body}</span>
+        <p>{post.tags}</p>
         < Likes post={post} addOptimisticPost={addOptimisticPost} />
       
       </div>
