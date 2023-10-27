@@ -2,6 +2,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useState, useRef } from "react";
 import { addPost } from "./insertData";
+import PaintingsSkeletonCard from '@components/PaintingsSkeletonCard'
 
 
 
@@ -12,34 +13,52 @@ export default  function NewPost() {
   const [status, setStatus] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState({imageUrl:""});
+  const [loading, setLoading] = useState(false);
 
  const formRef=useRef()
   
 // handle image upload
+
 const handleFileUpload = (event) => {
+ 
   setSelectedImage(event.target.files[0]);
-  setSelectedImage(URL.createObjectURL(file));
-   
-}
-const handleImageSubmit=async () => {
+  const reader = new FileReader();
+  reader.onloadend = async () => {
+    setLoading(true);
+  };
+ 
+ 
+};
+  const handleImageSubmit= async () => {
+  
+    const formData = new FormData();
+    formData.append('file', selectedImage);
+    formData.append('upload_preset', 'artkonext');
+    try {
+      const data = await fetch('https://api.cloudinary.com/v1_1/dlel1msov/image/upload',
+        {
+          method: 'POST',
+          body: formData
+        }).then(r => r.json());
+      const secureUrl = data.secure_url;
+      setImageUrl(secureUrl);
+      setLoading(false);
+      
+      console.log('Image uploaded successfully!', data);
+      console.log('the url that will be passed:', secureUrl);
+    } catch (error) {
+      console.error('Failed to upload image.');
+    }
+
+      
     
-  const formData = new FormData();
-  formData.append('file', selectedImage);
+
+  };
+  
  
- 
-  formData.append('upload_preset', 'artkonext');
-
-  const data= await fetch('https://api.cloudinary.com/v1_1/dlel1msov/image/upload', 
-  {
-    method:'POST',
-    body:formData
-  }).then(r=>r.json());
-
-  const secureUrl=data.secure_url;
-  setImageUrl(secureUrl);
-}
 
 
+//right part of the screen, second form
 const handleFormSubmit = async (e) => {
   e.preventDefault();
   
@@ -47,11 +66,6 @@ const handleFormSubmit = async (e) => {
   try {
     if(formRef.current){
       const formData = new FormData(formRef.current);
-//upload image to cloudinary and return imageUrl 
-
-
-//upload data from the form to the supabase table using the server function addPost
-
     const res= await addPost(formData);
     formRef.current.reset()
     }
@@ -75,26 +89,31 @@ const handleFormSubmit = async (e) => {
         
     
     return (
-      <section className='w-full max-w-full flex-start flex-col md:flex-row gap-8'>
-      <section className='relative max-lg:w-screen mx-auto flex start flex-col gap-5 items-center justify-center'>
-      <h1 className="fs-1 m-3"> Add new work</h1>
-     <form onSubmit={handleImageSubmit}>
+      <section className='w-full max-w-full flex flex-start md:flex-row gap-3'>
+       
+      <section className='relative max-lg:w-50 mx-auto flex start flex-col gap-3 items-center justify-center'>
+   <span>
+   <h1 className='marron_gradient'> Add new work</h1>
+   </span>
+     
+     <>
      <label>Image
       <input type="file" accept="image/*" className="bg-inherit" onChange={handleFileUpload} >
             </input>
             </label>
-            {selectedImage && (
+            {selectedImage?(  
         <div>
-          <img src={selectedImage} alt="Selected" width="200" height="200" />
-          </div>
-          )}
         
-     </form>
+          <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="200" height="200" />
+          
+          </div>
+            ):(<PaintingsSkeletonCard/>)}
+          
+          <button className='px-5 py-1.5 text-sm border-black rounded shadow misty-blue' onClick={handleImageSubmit}>Upload</button>
+     </>
     </section>
         <section className='flex-start flex-col'>
-        <h1 className='head_text text-left'>
-          <span className='marron_gradient'>Dashboard</span>
-        </h1>
+       
         <p className='desc text-left max-w-md'>
           Publish your work and share it with the world
         </p>
@@ -105,9 +124,13 @@ const handleFormSubmit = async (e) => {
 
         <form onSubmit={(e)=>{handleFormSubmit(e)}} ref={formRef}>
 
-<label>Image URL
- 
-<input type="text" name="imageUrl" value={imageUrl}/>
+<label>Uploaded
+ {loading?(<PaintingsSkeletonCard/>
+
+          ):(<div >
+            <img src={imageUrl} alt="Selected" width="200" height="200" />
+           <input type="text" name="imageUrl" value={imageUrl} className="hidden" /> 
+            </div>)}
 
             </label>
             <label>
@@ -120,7 +143,7 @@ const handleFormSubmit = async (e) => {
           type="text"
             placeholder="Title"
            
-            className='form_input'>
+            className='px-5 py-1.5 text-sm border-black rounded shadow text-marron-oscuro'>
             </input>
           
         </label>
@@ -160,7 +183,7 @@ const handleFormSubmit = async (e) => {
           </label>
           <div>
             <button
-              className="outline_button cursor:pointer "
+              className="px-5 py-1.5 text-sm border-black rounded shadow misty-blue"
               type="submit"
               
             
