@@ -40,13 +40,12 @@ const router=useRouter()
     return optimisticPost.map((post) => (
             <div className= "border border-gray-800 border-t-0 px-4 py-8 flex" key = { post.id } >
                     <div className="h-12 w-12">
-         <Image
-          className="rounded-full"
-          src={post.princ_image_url}
-          alt="work image"
-          width={48}
-          height={48}
-        /> 
+   
+    <Image src={post.princ_image_url}  alt="this is your work" width={300} height={100}/>
+  
+
+
+
         </div>
         <div className="ml-4">
         <p>
