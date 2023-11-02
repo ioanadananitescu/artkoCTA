@@ -1,8 +1,8 @@
 
-import Header from '@components/Header';
+import Header from "../components/Header";
 
-import '@styles/globals.css';
-import MasonryGallery from '@components/MasonryGallery';
+import "../styles/globals.css"
+import MasonryGallery from '../components/MasonryGallery';
 
 
 

@@ -1,3 +1,5 @@
+
+
 import Link from "next/link";
 import DarkModeSwitcher from "./darkModeSwitcher";
 import DropdownMessage from "./dropdownMessage";
@@ -5,72 +7,95 @@ import DropdownNotification from "./dropdownNotifications";
 import DropdownUser from "./dropdownUser";
 import Image from "next/image";
 
-const Header = (props) =>{
-    const [sidebarOpen, setSidebarOpen]=useState()
 
+export default async function Header({sidebarOpen, setSidebarOpen}){
+
+    
   return (
-    <header className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
-      <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
+    <header className="sticky top-0 flex w-full 
+    bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
+      <div className="flex flex-grow 
+      items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
-          {/* <!-- Hamburger Toggle BTN --> */}
+       {/* <!-- Hamburger Toggle BTN --> */} 
           <button
+             className="block 
+             rounded-sm  
+             bg-inherit p-4 shadow-sm  lg:hidden"
+          
             aria-controls="sidebar"
             onClick={(e) => {
               e.stopPropagation();
-              props.setSidebarOpen(!props.sidebarOpen);
+              setSidebarOpen(!sidebarOpen);
             }}
-            className="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
-          >
-            <span className="relative block h-5.5 w-5.5 cursor-pointer">
+         >
+                
+                <div className={`tham tham-e-squeeze tham-w-6 ${sidebarOpen && 'tham-active'}`}>
+                <div className="tham-box">
+                  <div className="tham-inner bg-misty-blue-500 dark:bg-mypink" />
+                </div>
+              </div>
+            
+       {/* hamburger menu not working. use instead plugin for
+           hamburgers from https://www.patrykgulas.com/hamburgers  */}
+          {/* 
+          
+          <span className="relative block h-5.5 w-5.5 cursor-pointer">
               <span className="du-block absolute right-0 h-full w-full">
                 <span
-                  className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${
-                    !props.sidebarOpen && "!w-full delay-300"
+                  className={`relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-white delay-[0] duration-200 ease-in-out 
+                  dark:bg-white ${
+                    !sidebarOpen && '!w-full delay-300'
+                  }`}
+                >
+                       
+                    
+                </span>
+                <span
+                  className={`relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white ${
+                    !sidebarOpen && 'delay-400 !w-full'
                   }`}
                 ></span>
                 <span
-                  className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white ${
-                    !props.sidebarOpen && "delay-400 !w-full"
-                  }`}
-                ></span>
-                <span
-                  className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white ${
-                    !props.sidebarOpen && "!w-full delay-500"
+                  className={`relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white ${
+                    !sidebarOpen && '!w-full delay-500'
                   }`}
                 ></span>
               </span>
               <span className="absolute right-0 h-full w-full rotate-45">
                 <span
                   className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white ${
-                    !props.sidebarOpen && "!h-0 !delay-[0]"
+                    !sidebarOpen && '!h-0 !delay-[0]'
                   }`}
                 ></span>
                 <span
                   className={`delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out dark:bg-white ${
-                    !props.sidebarOpen && "!h-0 !delay-200"
+                    !sidebarOpen && '!h-0 !delay-200'
                   }`}
                 ></span>
               </span>
-            </span>
+            </span>  */}
           </button>
-          {/* <!-- Hamburger Toggle BTN --> */}
+       {/* <!-- Hamburger Toggle BTN -->  */}
 
           <Link className="block flex-shrink-0 lg:hidden" href="/">
             <Image
-              width={32}
-              height={32}
-              src={"/images/logo/logo-icon.svg"}
+              width={50}
+              height={70}
+              src={"/assets/images/logoArtko5.svg"}
               alt="Logo"
             />
           </Link>
         </div>
+        {/* search input with icon using form block */}
 
-        <div className="hidden sm:block">
-          <form action="https://formbold.com/s/unique_form_id" method="POST">
+       <div className="hidden sm:block">
+          <form action="https://formbold.com/s/unique_form_id" method="POST" >
             <div className="relative">
               <button className="absolute left-0 top-1/2 -translate-y-1/2">
                 <svg
-                  className="fill-body hover:fill-primary dark:fill-bodydark dark:hover:fill-primary"
+                  className="fill-body hover:fill-primary 
+                  dark:fill-bodydark dark:hover:fill-primary"
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
@@ -95,34 +120,48 @@ const Header = (props) =>{
               <input
                 type="text"
                 placeholder="Type to search..."
-                className="w-full bg-transparent pl-9 pr-4 font-medium focus:outline-none xl:w-125"
+                className="w-full bg-transparent pl-9 
+                pr-4 font-medium focus:outline-none xl:w-125"
               />
             </div>
           </form>
-        </div>
+        </div> 
 
-        <div className="flex items-center gap-3 2xsm:gap-7">
-          <ul className="flex items-center gap-2 2xsm:gap-4">
-            {/* <!-- Dark Mode Toggler --> */}
-            <DarkModeSwitcher />
-            {/* <!-- Dark Mode Toggler --> */}
+        <div className="flex flex-row space-x-4 items-center  gap-4 2xsm:gap-7">
 
-            {/* <!-- Notification Menu Area --> */}
-            <DropdownNotification />
-            {/* <!-- Notification Menu Area --> */}
-
-            {/* <!-- Chat Notification Area --> */}
-            <DropdownMessage />
-            {/* <!-- Chat Notification Area --> */}
-          </ul>
-
-          {/* <!-- User Area --> */}
+        
+         
+         
+          <DarkModeSwitcher  />
+      
+    
+        <DropdownMessage />
+        <DropdownNotification/>
+      
           <DropdownUser />
-          {/* <!-- User Area --> */}
+        
+         
+   {/*     <ul className="flex items-center gap-2 2xsm:gap-4">
+            //  <!-- Dark Mode Toggler --> 
+         
+            //  <!-- Dark Mode Toggler -->  
+
+              // <!-- Notification Menu Area --> 
+       
+          // <!-- Notification Menu Area --> 
+
+        //  <!-- Chat Notification Area -->  
+      
+        //  <!-- Chat Notification Area --> 
+          </ul>  */}
+
+       {/* <!-- User Area -->  */}
+        
+       {/* <!-- User Area -->  */}
         </div>
       </div>
     </header>
   );
 };
 
-export default Header;
+

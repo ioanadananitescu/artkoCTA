@@ -1,6 +1,6 @@
 
-import AuthForm from '@app/auth-form'
-import Navedit from '@components/NavEdit'
+import AuthForm from "../auth-form";
+
 
 
 const AuthenticationForm=()=>{

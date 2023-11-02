@@ -7,8 +7,8 @@ const DropdownNotification = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
 
-  const trigger = useRef(null);
-  const dropdown = useRef(null);
+  const trigger = useRef();
+  const dropdown = useRef();
 
   useEffect(() => {
     const clickHandler = ({ target }) => {
@@ -23,7 +23,7 @@ const DropdownNotification = () => {
     };
     document.addEventListener('click', clickHandler);
     return () => document.removeEventListener('click', clickHandler);
-  });
+  }, []);
 
   // close if the esc key is pressed
   useEffect(() => {
@@ -36,22 +36,26 @@ const DropdownNotification = () => {
   });
 
   return (
-    <li className="relative">
-      <Link
+    <li className="relative list-none">
+      <div 
         ref={trigger}
         onClick={() => {
           setNotifying(false);
           setDropdownOpen(!dropdownOpen);
         }}
-        href="#"
-        className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
+        
+        className="relative flex h-8.5 w-8.5 
+        items-center justify-center rounded-full border-[0.5px] 
+        border-stroke bg-gray hover:text-primary 
+        dark:border-strokedark dark:bg-meta-4 dark:text-white cursor-pointer "
       >
         <span
-          className={`absolute -top-0.5 right-0 z-1 h-2 w-2 rounded-full bg-meta-1 ${
+          className={`absolute -top-0.5 right-0 z-1 h-2 w-2 rounded-full cursor:pointer bg-meta-1 ${
             notifying === false ? 'hidden' : 'inline'
           }`}
         >
-          <span className="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-meta-1 opacity-75"></span>
+          <span className="absolute -z-1 inline-flex 
+          h-full w-full animate-ping rounded-full bg-meta-1 opacity-75"></span>
         </span>
 
         <svg
@@ -67,7 +71,7 @@ const DropdownNotification = () => {
             fill=""
           />
         </svg>
-      </Link>
+      </div>
 
       <div
         ref={dropdown}

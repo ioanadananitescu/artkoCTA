@@ -7,23 +7,10 @@
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
-html,
-body {
-  --custom-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
- 
-    --custom-bg-color:  #edcf9bac 80%;
-  --custom-color: #fff;
-  --custom-color-brand: #c2a850;
-  --custom-color-secondary: #666;
-  --custom-border: 1px solid #968e7b;
-  --custom-border-radius: 5px;
-  --custom-spacing: 5px;
-
-  padding: 0;
-  margin: 0;
-  font-family: var(--custom-font-family);
-  background-color: var(--custom-bg-color);
+@layer base {
+  body {
+    @apply font-satoshi font-normal text-base text-body bg-whiten relative;
+  }
 }
 
 .main {
@@ -95,6 +82,22 @@ body {
 
 
 @layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .chat-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+  .inbox-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+
+
   @variants responsive {
       .masonry-3-col {
           column-count: 3;
@@ -107,13 +110,7 @@ body {
       .break-inside {
           break-inside: avoid;
       }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
+ 
   }
   
 }
@@ -216,6 +213,16 @@ body {
   @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter lg:w-[360px] w-full h-fit;
 }
 
+.flex.column {
+  flex-direction: column;
+}
+.flex.row {
+  flex-direction: row;
+}
+.flex.flex-1 {
+  flex: 1 1 0;
+}
+
 .flex-center {
   @apply flex justify-center items-center;
 }
@@ -256,27 +263,8 @@ input[disabled] {
   display: inline-block;
   width: 100%;
 }
-.flex {
-  display: flex;
-}
-.flex.column {
-  flex-direction: column;
-}
-.flex.row {
-  flex-direction: row;
-}
-.flex.flex-1 {
-  flex: 1 1 0;
-}
-.flex-end {
-  justify-content: flex-end;
-}
-.flex-center {
-  justify-content: center;
-}
-.items-center {
-  align-items: center;
-}
+
+
 .text-sm {
   font-size: 0.8rem;
   font-weight: 300;
@@ -291,28 +279,6 @@ input[disabled] {
   opacity: 50%;
 }
 
-/* Button */
-
-button,
-.button {
-  color: var(--custom-color);
-  border: var(--custom-border);
-  background-color: var(--custom-bg-color);
-  display: inline-block;
-  text-align: center;
-  border-radius: var(--custom-border-radius);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  text-align: center;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-
-button.primary,
-.button.primary {
-  background-color: var(--custom-color-brand);
-  border: 1px solid var(--custom-color-brand);
-}
 
 /* Widgets */
 
@@ -427,3 +393,18 @@ button.primary,
   animation: spin 1s linear infinite;
   filter: invert(1);
 }
+/*utils dashboard */
+.jvectormap-tip {
+  background-color: #F8FAFC!important;
+  font-family: Satoshi, sans-serif;;
+}
+
+.map-btn .jvectormap-container .jvectormap-zoomin, 
+.map-btn .jvectormap-container .jvectormap-zoomout {
+  @apply bottom-0 top-auto right-0 left-auto flex items-center justify-center w-7.5 h-7.5 rounded border border-stroke dark:border-strokedark hover:border-primary dark:hover:border-primary bg-white hover:bg-primary text-body hover:text-white dark:text-bodydark dark:hover:text-white text-2xl leading-none px-0 pt-0 pb-0.5;
+}
+
+.map-btn .jvectormap-container .jvectormap-zoomin {
+  right: 45px;
+}
+

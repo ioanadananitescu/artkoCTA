@@ -1,4 +1,4 @@
-import AuthProvider from "@components/Auth/AuthProvider";
+import AuthProvider from "../../components/Auth/AuthProvider";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { cache } from 'react';

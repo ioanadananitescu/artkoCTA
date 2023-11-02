@@ -1,10 +1,10 @@
-import '@styles/globals.css';
+import '../styles/globals.css';
 
 
-import Navbar from '@components/NavBar';
-import  Footer  from '@components/Footer';
-import Navedit from '@components/NavEdit';
-import AuthProvider from '@components/Auth/AuthProvider';
+import Navbar from '../components/NavBar';
+import  Footer  from '../components/Footer';
+import Navedit from '../components/NavEdit';
+import AuthProvider from '../components/Auth/AuthProvider';
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { cache } from 'react';

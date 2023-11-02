@@ -3,9 +3,10 @@
 
 import Link from 'next/link';
 import {useState, useEffect} from 'react';
-import ThemeSwitcher from './ThemeSwitcher';
+
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
+import DarkModeSwitcher from './DarkModeSwitcher';
 
 
 
@@ -53,7 +54,7 @@ export default  function Navedit(){
  <nav className="flex  justify-end w-full mb-16 pt-3">
         <div className="flex relative">
 
-        <div className="z-50  mr-10 flex flex-center"><ThemeSwitcher/></div>
+        <div className="z-50  mr-10 flex flex-center"><DarkModeSwitcher/></div>
     
         <div  class="flex gap-2 md:order-2 z-50">
 

@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { cache } from 'react';
 
 
-import ResetPassword from '@components/Auth/ResetPassword';
+import ResetPassword from '../../../components/Auth/ResetPassword';
 
 export default async function ResetPasswordPage() {
    //code replacind const supabase=createServerComponentClient({cookies}) that causes production problems

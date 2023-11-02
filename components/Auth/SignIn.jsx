@@ -39,7 +39,7 @@ const SignIn = () => {
         onSubmit={signIn}
       >
         {({ errors, touched }) => (
-          <Form className="column w-full">
+          <Form className="space-y-4 md:space-y-6">
             <label htmlFor="email">Email</label>
             <Field
               className={cn('input', errors.email && touched.email && 'bg-red-50')}

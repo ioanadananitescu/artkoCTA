@@ -2,8 +2,8 @@
 import { Metadata } from "next";
 
 export const metadata = {
-  title: "TailAdmin | Next.js E-commerce Dashboard Template",
-  description: "This is Home Blog page for TailAdmin Next.js",
+  title: "Artko online | gallery | art platform",
+  description: "Showcasing emerging artists ",
   // other metadata
 };
 
