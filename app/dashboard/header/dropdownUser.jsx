@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState, useCallback} from "react";
 import Link from "next/link";
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+
 import Image from "next/image";
 
 export default  function DropdownUser () {
@@ -40,47 +40,7 @@ export default  function DropdownUser () {
 
 
   //retrive user profile from supabase
-  const supabase = createClientComponentClient()
-  const user= supabase.auth.getUser()
 
-  const [loading, setLoading] = useState(true)
-  const [fullname, setFullname] = useState(null)
-  const [username, setUsername] = useState(null)
-  const [website, setWebsite] = useState(null)
-  const [avatar_url, setAvatarUrl] = useState(null)
-
-
-
-
-  const getProfile = useCallback(async () => {
-    try {
-      setLoading(true)
-
-      let { data, error, status } = await supabase
-        .from('profiles')
-        .select(`full_name, username, website, avatar_url`)
-        .eq('id', user?.id)
-        .single()
-
-      if (error && status !== 406) {
-        throw error
-      }
-
-      if (data) {
-        setFullname(data.full_name)
-        setUsername(data.username)
-        setWebsite(data.website)
-        setAvatarUrl(data.avatar_url)
-      }
-    } catch (error) {
-      alert('Error loading user data!')
-    } finally {
-      setLoading(false)
-    }
-  }, [user, supabase])
-  useEffect(() => {
-    getProfile()
-  }, [user, getProfile])
 
 
   return (
@@ -93,9 +53,10 @@ export default  function DropdownUser () {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {username}
+          My User
           </span>
-          <span className="block text-xs">{fullname}</span>
+          </span>
+          <span className="block text-xs">My name
         </span>
 
         <span className="h-12 w-12 rounded-full">
@@ -106,7 +67,7 @@ export default  function DropdownUser () {
           <Image
             width={112}
             height={112}
-            src={avatar_url}
+            src=""
             alt="User"
           /> 
         </span>

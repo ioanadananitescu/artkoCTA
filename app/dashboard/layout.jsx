@@ -9,6 +9,7 @@ import Loader from "./loader";
 import Sidebar from "./sidebar/sidebar";
 import Header from "./header/header";
 
+
 export default function DashboardLayout({
   children,
 }) {
@@ -33,10 +34,7 @@ export default function DashboardLayout({
               {/* <!-- ===== Content Area Start ===== --> */}
               <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
                 {/* <!-- ===== Header Start ===== --> */}
-                <Header
-                  sidebarOpen={sidebarOpen}
-                  setSidebarOpen={setSidebarOpen}
-                />
+             <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
                 {/* <!-- ===== Header End ===== --> */}
 
                 {/* <!-- ===== Main Content Start ===== --> */}

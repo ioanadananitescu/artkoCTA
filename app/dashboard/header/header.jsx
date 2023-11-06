@@ -4,11 +4,11 @@ import Link from "next/link";
 import DarkModeSwitcher from "./darkModeSwitcher";
 import DropdownMessage from "./dropdownMessage";
 import DropdownNotification from "./dropdownNotifications";
-import DropdownUser from "./dropdownUser";
+
 import Image from "next/image";
 
 
-export default async function Header({sidebarOpen, setSidebarOpen}){
+const Header=({sidebarOpen, setSidebarOpen})=>{
 
     
   return (
@@ -138,7 +138,7 @@ export default async function Header({sidebarOpen, setSidebarOpen}){
         <DropdownMessage />
         <DropdownNotification/>
       
-          <DropdownUser />
+       
         
          
    {/*     <ul className="flex items-center gap-2 2xsm:gap-4">
@@ -163,5 +163,6 @@ export default async function Header({sidebarOpen, setSidebarOpen}){
     </header>
   );
 };
+export default Header;
 
 
