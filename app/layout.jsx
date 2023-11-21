@@ -1,13 +1,10 @@
 import '../styles/globals.css';
-
-
-import Navbar from '../components/NavBar';
 import  Footer  from '../components/Footer';
-import Navedit from '../components/NavEdit';
 import AuthProvider from '../components/Auth/AuthProvider';
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { cache } from 'react';
+import {inter} from './ui/fonts/fonts';
 
 
 
@@ -42,20 +39,18 @@ const {
   <html>
    
  
-      <body>
+      <body className={`${inter.className} antialiased`}>
 				
       <AuthProvider accessToken={accessToken}>
-        <main className="app">
+        <main >
    
-            <Navedit />
     
-    
-            <Navbar />
+   
        
             {children}
          
           </main>
-          <Footer />
+          {/* <Footer /> */}
           </AuthProvider>
     
        

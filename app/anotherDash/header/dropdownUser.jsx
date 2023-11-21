@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState, useCallback} from "react";
 import Link from "next/link";
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import Image from "next/image";
 import AvatarDashboard from "./avatarDashboard";
 
 export default  function DropdownUser ({session}) {
@@ -93,12 +92,12 @@ export default  function DropdownUser ({session}) {
           <span className="block text-xs">{username}
         </span>
 
-        <span className="h-12 w-12 rounded-full">
+        <span className="h-20 w-20">
     
         <AvatarDashboard
       uid={user?.id}
       url={avatar_url}
-      size={50}
+      size={60}
     
       
             /> 

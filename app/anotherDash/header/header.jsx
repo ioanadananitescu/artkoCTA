@@ -137,7 +137,7 @@ const Header=({sidebarOpen, setSidebarOpen, session})=>{
       
     
         <DropdownMessage />
-        <DropdownNotification/>
+        {/* <DropdownNotification/> */}
         <DropdownUser session={session}/>
       
        

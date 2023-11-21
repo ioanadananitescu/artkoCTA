@@ -1,8 +1,8 @@
 
 
-import Navbar from '@components/NavBar';
-import Navedit from '@components/NavEdit';
-import '@styles/globals.css';
+import Navbar from '../../components/NavBar'; 
+import Navedit from '../../components/NavEdit';
+import '../../styles/globals.css';
 
 import {v2 as cloudinary} from 'cloudinary';
 
