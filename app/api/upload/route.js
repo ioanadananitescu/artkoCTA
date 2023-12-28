@@ -1,5 +1,5 @@
 // pages/api/images.js
-import Imagine from '@models/image';
+import Imagine from '../../../models/image';
 import mongoose from "mongoose";
 
 export const POST=async (request)=> {

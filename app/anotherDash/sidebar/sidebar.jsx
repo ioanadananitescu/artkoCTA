@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SidebarLinkGroup from "./SidebarLinkGroup";
+import SidebarLinkGroup from "./sidebarlinkgroup";
 import Image from "next/image";
 
 

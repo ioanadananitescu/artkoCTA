@@ -1,6 +1,6 @@
 'use client';
 
-import ImageUpload from "@components/legacy/ImageUpload";
+import ImageUpload from "../../../components/legacy/ImageUpload";
 
 
 const UploadImage = () => {

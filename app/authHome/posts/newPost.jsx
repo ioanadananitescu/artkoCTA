@@ -2,7 +2,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useState, useRef } from "react";
 import { addPost } from "./insertData";
-import PaintingsSkeletonCard from '@components/PaintingsSkeletonCard'
+import PaintingsSkeletonCard from '../../../components/PaintingsSkeletonCard'
 
 
 
