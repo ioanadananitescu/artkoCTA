@@ -135,8 +135,8 @@ const Header=({sidebarOpen, setSidebarOpen, session})=>{
          
           <DarkModeSwitcher  />
       
-    
-        <DropdownMessage />
+{/*     
+        <DropdownMessage /> */}
         {/* <DropdownNotification/> */}
         <DropdownUser session={session}/>
       

@@ -41,7 +41,7 @@ const Navbar = () => {
   ))}
 </nav> 
           </div>*/}
-          <div className="flex px-4 translate-y-2.5">
+          <div className="flex px-4 translate-y-2.5 translate-x-1/2">
             <button
               className=" inline-flex items-center 
               justify-center p-2 rounded-md text-gray-400 

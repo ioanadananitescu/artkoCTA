@@ -1,10 +1,10 @@
 
-import Header from "../components/Header";
+import Header from "../components/legacy/Header";
 
 import "../styles/globals.css"
-import MasonryGallery from '../components/MasonryGallery';
-import Navbar from "../components/NavBar";
-import Navedit from "../components/NavEdit";
+import MasonryGallery from './ui/components/MasonryGallery';
+import Navbar from "./ui/components/NavBar";
+import Navedit from "./ui/components/NavEdit";
 
 
 

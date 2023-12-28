@@ -27,9 +27,9 @@ export default async function AnotherDashLayout({children}){
 
         return (
             <>
-       
+        <AnotherDash session={session}/>
                     <main>
-                    <AnotherDash session={session}/>
+                   
                   <div className={`${lusitana.className} mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 
                   -translate-y-1/4 2xsm:-translate-y-1/4 lg:-translate-y-2/4`}>
                     {children}

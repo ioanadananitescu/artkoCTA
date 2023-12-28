@@ -18,9 +18,8 @@ export default function ImageUpload()  {
     
       const formData = new FormData();
       formData.append('file', selectedImage);
-     
-     
       formData.append('upload_preset', 'artkonext');
+      formData.append('tags','myTag');
 try {
       const data= await fetch('https://api.cloudinary.com/v1_1/dlel1msov/image/upload', 
       {
@@ -30,12 +29,6 @@ try {
 
       const secureUrl=data.secure_url;
       setImageUrl(secureUrl);
-  
-        
-        console.log('Image uploaded successfully!', data);
-
-        console.log('the url that will be passed:', secureUrl);
-
     
   
       } catch (error) {

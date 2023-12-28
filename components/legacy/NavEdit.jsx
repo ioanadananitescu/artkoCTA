@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
-import DarkModeSwitcher from './DarkModeSwitcher';
+import DarkModeSwitcher from '../DarkModeSwitcher';
 
 
 

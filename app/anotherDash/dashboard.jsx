@@ -1,6 +1,6 @@
 "use client";
 
-import "../../app/dashboard/data-tables-css.css";
+import "../../app/anotherDash/data-tables-css.css";
 import "../../styles/globals.css";
 import { lusitana } from "../ui/fonts/fonts";
 

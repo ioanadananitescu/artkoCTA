@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
 import React, {useState, useEffect} from 'react';
-import { commerce } from '@lib/commerce';
-import Navbar from '@components/NavBar';
-import Footer from '@components/Footer';
-import Skeleton from '@components/Skeleton';
-import NavBarSecondary from '@components/NavBarSecondary';
+import { commerce } from '../../lib/commerce';
+import Navbar from '../../components/legacy/NavBar';
+
+import Skeleton from '../../components/Skeleton';
+import NavBarSecondary from '../../components/NavBarSecondary';
 
 
 
-const Paintings = () => {
+export default function Paintings () {
 
     
 const [products, setProducts]=useState([]);
@@ -119,4 +119,5 @@ useEffect(()=>{
   )
 }
 
-export default Paintings
+
+
