@@ -51,7 +51,7 @@ export default  function Navedit(){
 
   return (
   
- <nav className="flex  justify-end w-full mb-16 pt-3">
+ <nav className="flex  justify-end w-full ">
         <div className="flex relative">
 
         <div className="z-50  mr-10 flex flex-center"><DarkModeSwitcher/></div> 
@@ -74,7 +74,7 @@ export default  function Navedit(){
               width="30"
               height="30"
               viewBox="0 0 256 256"
-              fill="#fff"
+              fill="#000"
               stroke="0.5"
             >
  
@@ -113,7 +113,7 @@ export default  function Navedit(){
                 width="30 "
                 height="30"
                 viewBox="0 0 256 256"
-                fill="#fff"
+                fill="#000"
                 stroke="0.5"
               >
      
@@ -151,7 +151,7 @@ export default  function Navedit(){
       height="30"
       viewBox="0 0 256 256"
     >
-      <g fill="#fff" strokeMiterlimit="10" strokeWidth="0.5">
+      <g fill="#000" strokeMiterlimit="10" strokeWidth="0.5">
         <path
           d="M45 34.78c-9.589 0-17.39-7.801-17.39-17.39S35.411 0 45 0s17.391 7.801 17.391 17.39S54.589 34.78 45 34.78zM45 7c-5.729 0-10.39 4.661-10.39 10.39S39.271 27.78 45 27.78c5.729 0 10.391-4.661 10.391-10.39S50.729 7 45 7zM69.417 90a3.5 3.5 0 01-3.5-3.5V61.756c0-7.28-5.923-13.203-13.203-13.203H37.287c-7.28 0-13.203 5.923-13.203 13.203V86.5a3.5 3.5 0 11-7 0V61.756c0-11.14 9.063-20.203 20.203-20.203h15.427c11.14 0 20.203 9.063 20.203 20.203V86.5a3.5 3.5 0 01-3.5 3.5z"
           transform="matrix(2.81 0 0 2.81 1.407 1.407)"

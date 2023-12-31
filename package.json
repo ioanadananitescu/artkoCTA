@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@builder.io/dev-tools": "^0.2.7",
+    "@builder.io/react": "^3.1.1",
+    "@builder.io/sdk": "^2.1.1",
     "@chec/commerce.js": "^2.8.0",
     "@cloudinary/react": "^1.11.2",
     "@cloudinary/url-gen": "^1.11.1",

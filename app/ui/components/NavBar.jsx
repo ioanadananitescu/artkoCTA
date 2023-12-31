@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className="absolute w-screen z-20">
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
-      <Link href="/" className="flex px-10 gap-2 flex-left">
+      <Link href="/" className="flex px-10 py-5 gap-2 flex-left">
         <Image 
         width={50}
         height={70}
@@ -41,7 +41,7 @@ const Navbar = () => {
   ))}
 </nav> 
           </div>*/}
-          <div className="flex px-4 translate-y-5.5 translate-x-1/2">
+          <div className="flex px-4 -translate-y-3/4 translate-x-1/2">
             <button
               className=" inline-flex items-center 
               justify-center p-2 rounded-md text-gray-400 
